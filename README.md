@@ -12,8 +12,13 @@
 Ver si un valor es un número válido (hay que usar el punto como separador de decimales)
 
 const valor = document.getElementById("metros").value
+
 if(parseFloat(valor) == valor) {
+
     console.log("si");
+    
 } else {
+
     console.log("no");
+    
 }
