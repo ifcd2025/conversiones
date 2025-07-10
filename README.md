@@ -1,6 +1,6 @@
 # conversiones
 
-- Metros a kilómetros: dividir entre 10000
+- Metros a kilómetros: dividir entre 1000
 - Metros a centímetros: multiplicar por 100
 - Gramos a kilogramos: dividir por 1000
 - Gramos a miligramos: multiplicar por 1000
