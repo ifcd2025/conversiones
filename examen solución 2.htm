@@ -80,14 +80,11 @@
             const metros = document.getElementById("metros");
             const longitudes = document.getElementById("longitudes");
             if(metros.value == "") {
-                window.alert("Los metros no pueden estar vacíos");
-                metros.focus();
+                mostrarError(metros, "Los metros no pueden estar vacíos")
                 return;
             }
-            if(parseFloat(metros.value) != metros.value) {
-                window.alert("Debes introducir un número en metros");
-                metros.focus();
-                metros.select();
+            if(esNumero(metros.value) == false) {
+                mostrarError(metros, "Debes introducir un número en metros")
                 return;
             }
             longitudes.value = (metros.value / 1000).toFixed(4);
@@ -97,14 +94,11 @@
             const metros = document.getElementById("metros");
             const longitudes = document.getElementById("longitudes");
             if(metros.value == "") {
-                window.alert("Los metros no pueden estar vacíos");
-                metros.focus();
+                mostrarError(metros, "Los metros no pueden estar vacíos")
                 return;
             }
-            if(parseFloat(metros.value) != metros.value) {
-                window.alert("Debes introducir un número en metros");
-                metros.focus();
-                metros.select();
+            if(esNumero(metros.value) == false) {
+                mostrarError(metros, "Debes introducir un número en metros")
                 return;
             }
             longitudes.value = (metros.value * 100).toFixed(4);
@@ -116,14 +110,11 @@
             const aKg = document.getElementById("aKg");
 
             if(gramos.value == "") {
-                window.alert("Los gramos no pueden estar vacíos");
-                gramos.focus();
+                mostrarError(gramos, "Los gramos no pueden estar vacíos")
                 return;
             }
-            if(parseFloat(gramos.value) != gramos.value) {
-                window.alert("Debes introducir un número en gramos");
-                gramos.focus();
-                gramos.select();
+            if(esNumero(gramos.value) == false) {
+                mostrarError(gramos, "Debes introducir un número en gramos")
                 return;
             }
 
@@ -141,14 +132,11 @@
             const opcionesTiempo = document.getElementById("opcionesTiempo").value;
 
             if(minutos.value == "") {
-                window.alert("Los minutos no pueden estar vacíos");
-                minutos.focus();
+                mostrarError(minutos, "Los minutos no pueden estar vacíos")
                 return;
             }
-            if(parseFloat(minutos.value) != minutos.value) {
-                window.alert("Debes introducir un número en minutos");
-                minutos.focus();
-                minutos.select();
+            if(esNumero(minutos.value) == false) {
+                mostrarError(minutos, "Debes introducir un número en minutos")
                 return;
             }
             if(opcionesTiempo == 0) {
@@ -162,14 +150,11 @@
             const litros = document.getElementById("litros");
             const volumenes = document.getElementById("volumenes");
             if(litros.value == "") {
-                window.alert("Los litros no pueden estar vacíos");
-                litros.focus();
+                mostrarError(litros, "Los litros no pueden estar vacíos")
                 return;
             }
-            if(parseFloat(litros.value) != litros.value) {
-                window.alert("Debes introducir un número en litros");
-                litros.focus();
-                litros.select();
+            if(esNumero(litros.value) == false) {
+                mostrarError(litros, "Debes introducir un número en litros")
                 return;
             }
             volumenes.value = (litros.value / 1000).toFixed(4);
@@ -179,14 +164,12 @@
             const litros = document.getElementById("litros");
             const volumenes = document.getElementById("volumenes");
             if(litros.value == "") {
-                window.alert("Los litros no pueden estar vacíos");
-                litros.focus();
+                mostrarError(litros, "Los litros no pueden estar vacíos")
                 return;
             }
-            if(parseFloat(litros.value) != litros.value) {
-                window.alert("Debes introducir un número en litros");
-                litros.focus();
-                litros.select();
+            // ! significa no y nos permite ahorrarnos el == false
+            if(!esNumero(litros.value)) {
+                mostrarError(litros, "Debes introducir un número en litros");
                 return;
             }
             volumenes.value = (litros.value * 1000).toFixed(4);
@@ -203,6 +186,21 @@
             document.getElementById("volumenes").value = "";
         }
 
+        function esNumero(valor) {
+            if(parseFloat(litros.value) != litros.value) {
+                return false;
+            } else {
+                return true;
+            }
+
+            // return parseFloat(litros.value) == litros.value;
+        }
+
+        function mostrarError(elemento, mensaje) {
+            window.alert(mensaje);
+            elemento.focus();
+            elemento.select();
+        }
       
         document.getElementById("aKm").addEventListener("click", convertirAkm);
         document.getElementById("aCm").addEventListener("click", convertirACm);
