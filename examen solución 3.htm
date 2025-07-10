@@ -76,7 +76,7 @@
 
     <script>
 
-        function convertirAkm() {
+        function convertirMetros(evt) {
             const metros = document.getElementById("metros");
             const longitudes = document.getElementById("longitudes");
             if(metros.value == "") {
@@ -87,21 +87,11 @@
                 mostrarError(metros, "Debes introducir un número en metros")
                 return;
             }
-            longitudes.value = (metros.value / 1000).toFixed(4);
-        }
-
-        function convertirACm() {
-            const metros = document.getElementById("metros");
-            const longitudes = document.getElementById("longitudes");
-            if(metros.value == "") {
-                mostrarError(metros, "Los metros no pueden estar vacíos")
-                return;
+            if(evt.currentTarget.id == "aKm") {
+                longitudes.value = (metros.value / 1000).toFixed(4);
+            } else {
+                longitudes.value = (metros.value * 100).toFixed(4);
             }
-            if(esNumero(metros.value) == false) {
-                mostrarError(metros, "Debes introducir un número en metros")
-                return;
-            }
-            longitudes.value = (metros.value * 100).toFixed(4);
         }
 
         function convertirGramos() {
@@ -146,7 +136,7 @@
             }
         }
 
-         function convertirAkl() {
+         function convertirLitros(evt) {
             const litros = document.getElementById("litros");
             const volumenes = document.getElementById("volumenes");
             if(litros.value == "") {
@@ -157,33 +147,15 @@
                 mostrarError(litros, "Debes introducir un número en litros")
                 return;
             }
-            volumenes.value = (litros.value / 1000).toFixed(4);
-        }
-
-        function convertirAMl() {
-            const litros = document.getElementById("litros");
-            const volumenes = document.getElementById("volumenes");
-            if(litros.value == "") {
-                mostrarError(litros, "Los litros no pueden estar vacíos")
-                return;
+            if(evt.currentTarget.id == "aKl") {
+                volumenes.value = (litros.value / 1000).toFixed(4);
+            } else {
+                volumenes.value = (litros.value * 1000).toFixed(4);
             }
-            // ! significa no y nos permite ahorrarnos el == false
-            if(!esNumero(litros.value)) {
-                mostrarError(litros, "Debes introducir un número en litros");
-                return;
-            }
-            volumenes.value = (litros.value * 1000).toFixed(4);
         }
 
         function limpiar() {
-            document.getElementById("metros").value = "";
-            document.getElementById("gramos").value = "";
-            document.getElementById("minutos").value = "";
-            document.getElementById("litros").value = "";
-            document.getElementById("longitudes").value = "";
-            document.getElementById("masas").value = "";
-            document.getElementById("tiempos").value = "";
-            document.getElementById("volumenes").value = "";
+            document.querySelectorAll("input[type='text']").forEach(e => e.value = "");
         }
 
         function esNumero(valor) {
@@ -202,12 +174,12 @@
             elemento.select();
         }
       
-        document.getElementById("aKm").addEventListener("click", convertirAkm);
-        document.getElementById("aCm").addEventListener("click", convertirACm);
+        document.getElementById("aKm").addEventListener("click", convertirMetros);
+        document.getElementById("aCm").addEventListener("click", convertirMetros);
         document.getElementById("convertirGramos").addEventListener("click", convertirGramos);
         document.getElementById("convertirMinutos").addEventListener("click", convertirMinutos);
-        document.getElementById("aKl").addEventListener("click", convertirAkl);
-        document.getElementById("aMl").addEventListener("click", convertirAMl);
+        document.getElementById("aKl").addEventListener("click", convertirLitros);
+        document.getElementById("aMl").addEventListener("click", convertirLitros);
         document.getElementById("limpiar").addEventListener("click", limpiar);
 
     
