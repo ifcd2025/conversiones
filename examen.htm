@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <style>
+        .conversiones {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: auto;
+        }
+        #limpiar {
+            grid-column: 1 / 3;
+        }
+        #aKl, #aMl {
+            &:hover {
+                border-color: red !important;
+            }
+        }
+    </style>
+</head>
+<body class="p-3">
+    <main class="w-75 d-flex flex-column border shadow rounded-3 m-auto bg-success-subtle p-3">
+        <h1>Conversiones</h1>
+        <div class="conversiones">
+            <section class="d-flex flex-column bg-secondary-subtle shadow p-3 rounded-2">
+                <h2 class="border-1 border-bottom border-dark">Longitudes</h2>
+                <label for="metros">Metros</label>
+                <input type="text" name="metros" id="metros" class="w-25">
+                <div class="pt-2 d-flex gap-2">
+                    <input type="button" name="aKm" id="aKm" value="a Km" class="btn btn-success">
+                    <input type="button" name="aCm" id="aCm" value="a CM" class="btn btn-primary">
+                    <input type="text" name="longitudes" id="longitudes" readonly class="bg-warning-subtle border-0">
+                </div>
+            </section>
+            <section class="d-flex flex-column bg-secondary-subtle shadow p-3 rounded-2">
+                <h2 class="border-1 border-bottom border-dark">Masas</h2>
+                <label for="gramos">Gramos</label>
+                <input type="text" name="gramos" id="gramos" class="w-25">
+                <div class="pt-2 d-flex gap-2 align-items-center">
+                    <input type="radio" name="aKg" id="aKg"><label for="aKg">a Kg</label>
+                    <input type="radio" name="aMg" id="aMg"><label for="aMg">a Mg</label>
+                    <input type="button" name="convertirGramos" id="convertirGramos" value="convertir" class="btn btn-success">
+                    <input type="text" name="masas" id="masas" readonly class="bg-warning-subtle border-0">
+                </div>
+            </section>
+            <section class="d-flex flex-column bg-secondary-subtle shadow p-3 rounded-2">
+                <h2 class="border-1 border-bottom border-dark">Tiempos</h2>
+                <label for="minutos">Minutos</label>
+                <input type="text" name="minutos" id="minutos" class="w-25">
+                <select name="opcionesTiempo" id="opcionesTiempo" class="form-select mt-2 w-25">
+                    <option value="0">a Horas</option>
+                    <option value="1">a Segundos</option>
+                </select>
+                <div class="pt-2 d-flex gap-2 align-items-center">
+                    <input type="button" name="convertirMinutos" id="convertirMinutos" value="convertir" class="btn btn-success">
+                    <input type="text" name="tiempos" id="tiempos" readonly class="bg-warning-subtle border-0">
+                </div>
+            </section>
+            <section class="d-flex flex-column bg-secondary-subtle shadow p-3 rounded-2">
+                <h2 class="border-1 border-bottom border-dark">Volúmenes</h2>
+                <label for="litros">Litros</label>
+                <input type="text" name="litros" id="litros" class="w-25">
+                <div class="pt-2 d-flex gap-2 align-items-end">
+                    <img src="aKl.png" alt="a Kilolitros" id="aKl" class="border border-1 border-primary rounded">
+                    <img src="aml.png" alt="a mililitros" id="aMl" class="border border-1 border-primary rounded">
+                    <input type="text" name="volumenes" id="volumenes" readonly class="bg-warning-subtle border-0">
+                </div>
+            </section>  
+            <input type="button" name="limpiar" id="limpiar" value="limpiar" class="btn btn-danger">
+        </div>      
+    </main>
+
+</body>
+</html>
