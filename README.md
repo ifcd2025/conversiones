@@ -8,4 +8,12 @@
 - Minutos a segundos: multiplicar por 60
 - Litros a kilolitros: dividir por 1000
 - Litros a mililitros: multiplicar por 1000
-  
+
+Ver si un valor es un número válido (hay que usar el punto como separador de decimales)
+
+const valor = document.getElementById("metros").value
+if(parseFloat(valor) == valor) {
+    console.log("si");
+} else {
+    console.log("no");
+}
